@@ -1,4 +1,6 @@
-export const Footer = ({ todoItems }) => {
+import { memo } from 'react';
+
+export const Footer = memo(({ todoItems }) => {
   return (
     <footer className="footer">
       <span>全てのタスク: {todoItems.length}</span>
@@ -6,4 +8,4 @@ export const Footer = ({ todoItems }) => {
       <span>未完了: {todoItems.filter((item) => !item.completed).length}</span>
     </footer>
   );
-};
+});

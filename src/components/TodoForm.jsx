@@ -1,4 +1,6 @@
-export const TodoForm = ({ todoText, onChangeTodoText, onClickAdd }) => {
+import { memo } from 'react';
+
+export const TodoForm = memo(({ todoText, onChangeTodoText, onClickAdd }) => {
   return (
     <form>
       <input
@@ -13,4 +15,4 @@ export const TodoForm = ({ todoText, onChangeTodoText, onClickAdd }) => {
       </button>
     </form>
   );
-};
+});
