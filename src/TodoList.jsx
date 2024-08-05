@@ -5,10 +5,7 @@ import { Footer } from './components/Footer';
 import styled from 'styled-components';
 
 export const TodoList = function () {
-  const [todoItems, setTodoItems] = useState([
-    { title: 'React触る', completed: true },
-    { title: 'Reactを完全に理解した', completed: false },
-  ]);
+  const [todoItems, setTodoItems] = useState([]);
 
   const [todoText, setTodoText] = useState('');
 
