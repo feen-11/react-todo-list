@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import styled from 'styled-components';
 
 export const EditForm = memo(
   ({
@@ -9,20 +10,41 @@ export const EditForm = memo(
     setEditingIndex,
   }) => {
     return (
-      <form className="edit-form">
-        <input
+      <SForm>
+        <SEditInput
           type="text"
-          className="edit-input"
           value={editingValue}
           onChange={handleEditChange}
         />
-        <button type="submit" onClick={(e) => onClickEditSave(e, index)}>
+        <SEditButton type="submit" onClick={(e) => onClickEditSave(e, index)}>
           保存
-        </button>
-        <button type="button" onClick={() => setEditingIndex(null)}>
+        </SEditButton>
+        <SEditButton type="button" onClick={() => setEditingIndex(null)}>
           キャンセル
-        </button>
-      </form>
+        </SEditButton>
+      </SForm>
     );
   }
 );
+
+const SForm = styled.form`
+  display: flex;
+  align-items: center;
+`;
+
+const SEditInput = styled.input`
+  flex: 1;
+  font-size: 18px;
+  padding: 8px;
+  margin-right: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+`;
+
+const SEditButton = styled.button`
+  font-size: 16px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+`;

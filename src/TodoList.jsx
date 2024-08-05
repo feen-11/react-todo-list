@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react';
 import { TodoForm } from './components/TodoForm';
 import { TodoItems } from './components/TodoItems';
 import { Footer } from './components/Footer';
+import styled from 'styled-components';
 
 export const TodoList = function () {
   const [todoItems, setTodoItems] = useState([
@@ -52,7 +53,7 @@ export const TodoList = function () {
   );
 
   return (
-    <div className="todoapp">
+    <STodoApp>
       <TodoForm
         todoText={todoText}
         onChangeTodoText={onChangeTodoText}
@@ -64,6 +65,16 @@ export const TodoList = function () {
         onToggleComplete={onToggleComplete}
       />
       <Footer todoItems={todoItems} />
-    </div>
+    </STodoApp>
   );
 };
+
+const STodoApp = styled.div`
+  background: #fff;
+  margin: 130px 0 40px 0;
+  position: relative;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  &:placeholder {
+    font-weight: 300;
+  }
+`;
