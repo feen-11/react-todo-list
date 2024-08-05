@@ -29,13 +29,10 @@ export const TodoList = function () {
   const onClickDelete = useCallback(
     (index) => {
       const isConfirmed = window.confirm('本当に削除してもよろしいですか？');
-      if (isConfirmed) {
-        const newTodoItems = [...todoItems];
-        newTodoItems.splice(index, 1);
-        setTodoItems(newTodoItems);
-      } else {
-        return;
-      }
+      if (!isConfirmed) return;
+      const newTodoItems = [...todoItems];
+      newTodoItems.splice(index, 1);
+      setTodoItems(newTodoItems);
     },
     [todoItems, setTodoItems]
   );
